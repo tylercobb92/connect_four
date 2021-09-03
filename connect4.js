@@ -5,8 +5,8 @@
  * board fills (tie)
  */
 
-const WIDTH = 7;
-const HEIGHT = 6;
+const width = 7;
+const height = 6;
 
 let currPlayer = 1; // active player: 1 or 2
 let board = []; // array of rows, each row is array of cells  (board[y][x])
@@ -16,7 +16,8 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  // TODO: set "board" to empty height x width matrix array
+
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -29,7 +30,7 @@ function makeHtmlBoard() {
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
-  for (let x = 0; x < WIDTH; x++) {
+  for (let x = 0; x < width; x++) {
     const headCell = document.createElement("td");
     headCell.setAttribute("id", x);
     top.append(headCell);
@@ -37,9 +38,9 @@ function makeHtmlBoard() {
   htmlBoard.append(top);
 
   // TODO: add comment for this code
-  for (let y = 0; y < HEIGHT; y++) {
+  for (let y = 0; y < height; y++) {
     const row = document.createElement("tr");
-    for (let x = 0; x < WIDTH; x++) {
+    for (let x = 0; x < width; x++) {
       const cell = document.createElement("td");
       cell.setAttribute("id", `${y}-${x}`);
       row.append(cell);
@@ -106,17 +107,17 @@ function checkForWin() {
     return cells.every(
       ([y, x]) =>
         y >= 0 &&
-        y < HEIGHT &&
+        y < height &&
         x >= 0 &&
-        x < WIDTH &&
+        x < width &&
         board[y][x] === currPlayer
     );
   }
 
   // TODO: read and understand this code. Add comments to help you.
 
-  for (let y = 0; y < HEIGHT; y++) {
-    for (let x = 0; x < WIDTH; x++) {
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
       const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
       const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
       const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
