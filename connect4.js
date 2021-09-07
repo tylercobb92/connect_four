@@ -87,7 +87,6 @@ function handleClick(evt) {
   if (y === null) {
     return;
   }
-
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
   placeInTable(y, x);
@@ -102,6 +101,7 @@ function handleClick(evt) {
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
+  currPlayer = currPlayer === 1 ? 2 : 1;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
@@ -126,9 +126,13 @@ function checkForWin() {
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
+      //check for a horizontal win by incrementing x value by 1
       const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+      //check for a vertical win by incrementing y value by 1
       const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      //check for a diagonal win to the right by incrementing x and y by 1
       const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+      //check for a diagonal win the left by decrementing x and y by 1
       const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
 
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
