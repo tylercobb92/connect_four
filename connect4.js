@@ -27,7 +27,7 @@ function makeBoard() {
 function makeHtmlBoard() {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
   const htmlBoard = document.getElementById('board');
-  // TODO: add comment for this code
+  // TODO: add comment for this code => create cells at the top of the game board that will be clicked to drop pieces into the columns below, set ID of each cell equal to x
   let top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
@@ -39,7 +39,7 @@ function makeHtmlBoard() {
   }
   htmlBoard.append(top);
 
-  // TODO: add comment for this code
+  // TODO: add comment for this code => create 7x6 game board below the row of headCell, set ID of each cell equal to its y-x position with 0-0 being top left
   for (let y = 0; y < height; y++) {
     const row = document.createElement("tr");
     for (let x = 0; x < width; x++) {
