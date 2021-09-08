@@ -55,7 +55,7 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
-  for (let y = height - 1; y > 0; y--) {
+  for (let y = height - 1; y >= 0; y--) {
     if (!board[y][x]) {
       return y;
     }
@@ -107,8 +107,6 @@ function handleClick(evt) {
   if (document.getElementsByClassName('piece').length === 42) {
     endGame();
   }
-
-
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
