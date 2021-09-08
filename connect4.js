@@ -78,6 +78,7 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 
 function endGame(msg) {
+  alert(msg);
   // TODO: pop up alert message
 }
 
@@ -105,7 +106,7 @@ function handleClick(evt) {
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
   if (document.getElementsByClassName('piece').length === 42) {
-    endGame();
+    return endGame("It's a tie!");
   }
 
   // switch players
